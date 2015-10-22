@@ -1,0 +1,1 @@
+A Web Ontology Language (OWL) ontology representing the Registry Interchange Format - Collections and Services (RIF-CS) version 1.6 information model.

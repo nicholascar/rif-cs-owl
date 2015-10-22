@@ -1,0 +1,152 @@
+# baseURI: http://communication.data.gov.au/def/rif-cs
+# imports: http://dublincore.org/2012/06/14/dctype.ttl
+# imports: http://purl.org/dc/elements/1.1/
+# imports: http://schema.theodi.org/odrs/index.ttl
+# imports: http://www.w3.org/ns/dcat.rdf
+# imports: http://www.w3.org/ns/org.ttl
+# imports: http://www.w3.org/ns/prov-o
+# imports: http://xmlns.com/foaf/spec/index.rdf
+# imports: https://creativecommons.org/schema.rdf
+
+@prefix : <http://communication.data.gov.au/def/rif-cs#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix odrs: <http://schema.theodi.org/odrs#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rif-cs: <http://communication.data.gov.au/def/rif-cs#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://communication.data.gov.au/def/rif-cs>
+  rdf:type owl:Ontology ;
+  dcterms:creator foaf:NicholasCar ;
+  dcterms:description "A Web Ontology Language (OWL) ontology representing the Registry Interchange Format - Collections and Services (RIF-CS) version 1.6 information model."^^xsd:string ;
+  dcterms:license <http://pid.csiro.au/id/licence/csiro-open-source-software-v1.0> ;
+  dcterms:rights <http://data.bioregionalassessments.gov.au/id/organisation/CSIRO?_property=attributionName&propertyIndex=g552fh> ;
+  rdfs:comment "A Web Ontology Language (OWL) ontology representing the Registry Interchange Format - Collections and Services (RIF-CS) version 1.6 information model."^^xsd:string ;
+  rdfs:label "RIF-CS in OWL"^^xsd:string ;
+  owl:imports <http://dublincore.org/2012/06/14/dctype.ttl> ;
+  owl:imports <http://purl.org/dc/elements/1.1/> ;
+  owl:imports <http://schema.theodi.org/odrs/index.ttl> ;
+  owl:imports <http://www.w3.org/ns/dcat.rdf> ;
+  owl:imports <http://www.w3.org/ns/org.ttl> ;
+  owl:imports <http://www.w3.org/ns/prov-o> ;
+  owl:imports <http://xmlns.com/foaf/spec/index.rdf> ;
+  owl:imports <https://creativecommons.org/schema.rdf> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+rif-cs:Activity
+  rdf:type owl:Class ;
+  owl:equivalentClass <http://www.w3.org/ns/prov#Activity> ;
+.
+rif-cs:AusGoalRestrictive
+  rdf:type odrs:License ;
+.
+rif-cs:Award
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:CC-BY
+  rdf:type odrs:License ;
+.
+<http://communication.data.gov.au/def/rif-cs#CC-BY-3.0-AU>
+  rdf:type cc:License ;
+  cc:legalcode <https://creativecommons.org/licenses/by/3.0/au/deed.en> ;
+.
+rif-cs:CC-BY-NC
+  rdf:type odrs:License ;
+.
+rif-cs:CC-BY-NC-ND
+  rdf:type odrs:License ;
+.
+rif-cs:CC-BY-NC-SA
+  rdf:type odrs:License ;
+.
+rif-cs:CC-BY-ND
+  rdf:type odrs:License ;
+.
+rif-cs:CC-BY-SA
+  rdf:type odrs:License ;
+.
+rif-cs:Collection
+  rdf:type owl:Class ;
+  owl:equivalentClass <http://purl.org/dc/dcmitype/Collection> ;
+.
+rif-cs:Course
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:Dataset
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Collection ;
+  owl:equivalentClass <http://www.w3.org/ns/dcat#Dataset> ;
+.
+rif-cs:Event
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:GPL
+  rdf:type odrs:License ;
+.
+rif-cs:Grant
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:NoLicence
+  rdf:type odrs:License ;
+.
+rif-cs:Party
+  rdf:type owl:Class ;
+  owl:equivalentClass foaf:Agent ;
+.
+rif-cs:Program
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:Project
+  rdf:type owl:Class ;
+  rdfs:subClassOf rif-cs:Activity ;
+.
+rif-cs:Service
+  rdf:type owl:Class ;
+.
+rif-cs:UnknownOrOther
+  rdf:type odrs:License ;
+.
+rif-cs:hasOutput
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rif-cs:Activity ;
+  rdfs:range rif-cs:Collection ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#generated> ;
+  owl:inverseOf rif-cs:isOutputOf ;
+.
+rif-cs:hasPart
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rif-cs:Collection ;
+  rdfs:range rif-cs:Dataset ;
+  owl:inverseOf rif-cs:isPartOf ;
+.
+rif-cs:isOutputOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rif-cs:Collection ;
+  rdfs:range rif-cs:Activity ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasGeneratedBy> ;
+  owl:inverseOf rif-cs:hasOutput ;
+.
+rif-cs:isPartOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rif-cs:Dataset ;
+  rdfs:range rif-cs:Collection ;
+  owl:inverseOf rif-cs:hasPart ;
+.
+rif-cs:partyType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain rif-cs:Party ;
+.
+foaf:NicholasCar
+  rdf:type foaf:Agent ;
+  rdfs:label "Nicholas J Car"^^xsd:string ;
+.
