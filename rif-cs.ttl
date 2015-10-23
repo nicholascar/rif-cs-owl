@@ -74,6 +74,7 @@ rif-cs:CC-BY-SA
 rif-cs:Collection
   rdf:type owl:Class ;
   owl:equivalentClass <http://purl.org/dc/dcmitype/Collection> ;
+  rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
 .
 rif-cs:Course
   rdf:type owl:Class ;
@@ -100,7 +101,7 @@ rif-cs:NoLicence
 .
 rif-cs:Party
   rdf:type owl:Class ;
-  owl:equivalentClass foaf:Agent ;
+  owl:equivalentClass <http://www.w3.org/ns/prov#Agent> ;
 .
 rif-cs:Program
   rdf:type owl:Class ;
@@ -128,6 +129,7 @@ rif-cs:hasPart
   rdfs:domain rif-cs:Collection ;
   rdfs:range rif-cs:Dataset ;
   owl:inverseOf rif-cs:isPartOf ;
+  owl:equivalentProperty <http://purl.org/dc/terms/hasPart> ;
 .
 rif-cs:isOutputOf
   rdf:type owl:ObjectProperty ;
@@ -141,6 +143,7 @@ rif-cs:isPartOf
   rdfs:domain rif-cs:Dataset ;
   rdfs:range rif-cs:Collection ;
   owl:inverseOf rif-cs:hasPart ;
+  owl:equivalentProperty <http://purl.org/dc/terms/isPartOf> ;
 .
 rif-cs:partyType
   rdf:type owl:ObjectProperty ;
